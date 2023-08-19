@@ -2,7 +2,7 @@
 
 # Agent configuration
 AGENT_CONFIG = {
-    "name": "Become a Marketing Specialist for Micro Targeting",
+    "name": "Marketing Specialist",
     "description": "Become a Marketing Specialist for Micro Targeting based on ChatGPT4",
     "goal": ["Become a Marketing Specialist for Micro Targeting based on ChatGPT4"],
     "agent_workflow": "Goal Based Workflow", 
@@ -37,5 +37,8 @@ AGENT_CONFIG = {
     }
 }
 
-BASE_URL = "{{URL}}"
-API_KEY = 'bf2b13a0-c5d3-403f-a887-ac8849b8304b'
+BASE_URL = "https://app.superagi.com"
+API_KEY = "yourapikey"
+
+
+#bf2b13a0-c5d3-403f-a887-ac8849b8304b
