@@ -22,8 +22,7 @@ AGENT_CONFIG = {
     ],
      "tools": [
         {
-           "name": "File Toolkit",
-           "tools": ["Read File","Write File"]
+           "name": "File Toolkit"
         }
     ],
     "iteration_interval": 500,
