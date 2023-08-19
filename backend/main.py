@@ -1,5 +1,5 @@
 import requests
-from agent_config import AGENT_CONFIG, BASE_URL, API_KEY
+from marketing_agent import AGENT_CONFIG, BASE_URL, API_KEY
 
 HEADERS = {
     'X-API-Key': API_KEY
