@@ -14,10 +14,10 @@ AGENT_CONFIG = {
         "REMEMBER to format your response as JSON, using double quotes ("") around keys and string values, and commas (,) to separate items in arrays and objects. IMPORTANTLY, to use a JSON object as a string in another JSON object, you need to escape the double quotes."
     ],
     "instruction": [
-        "Define a List of required components for a performance Ad and remember these as \"SIMBAD_SPEC_AD_V1\"" ,
-        "Write the result of the previous step to a file called  \"SIMBAD_SPEC_AD_V1\"",
-        "Define a List of required components for a landing page and remember these as \"SIMBAD_SPEC_LP_V1\"",
-        "Write the result of the previous step to a file called  \"SIMBAD_SPEC_LP_V1\""
+        "Define a List of required components for a performance Ad and remember these as \"simbad_spec_ad_v1\"" ,
+        "Write the result of the previous step to a file called  \"simbad_spec_ad_v1\"",
+        "Define a List of required components for a landing page and remember these as \"simbad_spec_lp_v1\"",
+        "Write the result of the previous step to a file called  \"simbad_spec_lp_v1\""
     ],
      "tools": [
         {
