@@ -29,12 +29,7 @@ AGENT_CONFIG = {
     "iteration_interval": 500,
     "model": "gpt-4",
     "max_iterations": 50,
-    "schedule": {
-        "start_time": "2023-08-14 21:32:00",
-        "recurrence_interval": "2 Minutes",
-        "expiry_runs": 2,
-        "expiry_date": None
-    }
+    "schedule": null  
 }
 
 BASE_URL = "https://app.superagi.com"
