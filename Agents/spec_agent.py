@@ -3,7 +3,7 @@
 # Agent configuration
 AGENT_CONFIG = {
     "name": "SPEC for LP/AD",
-    "description": "Create 40 micro-segments for a fitness App",
+    "description": "Create specification to generate Landing Pages and Ads for micro-segments",
     "goal": ["Create a specification of required elements for a Performance Ad and a Landing Page, so i can use it to generate them for micro-segments"],
     "agent_workflow": "Goal Based Workflow", 
     "constraints": [
