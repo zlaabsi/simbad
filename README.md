@@ -9,9 +9,13 @@ Our solution is primarily aimed at performance & growth marketers and ad special
 ---
 
 ## Demo
+
+### Classic use
 https://github.com/zlaabsi/simbad/assets/52045850/1741cfa5-8198-4979-8ed7-170e3c3265cd
 
-Absolutely! Here's a formatted `README.md` based on the provided content:
+### Using the agent's memory
+
+https://github.com/zlaabsi/simbad/assets/52045850/7655e35f-cdcf-4208-86c7-0680d708faf1
 
 
 ---
