@@ -65,8 +65,3 @@ Absolutely! Here's a formatted `README.md` based on the provided content:
 - **Community Connect**: Open to contributions! Fork, tailor, and send a pull request.
   
 - **Adaptability**: SIMBAD's architecture allows for easy adaptability to various industries. Dive into the code and customize as your needs dictate!
-
----
-
-This revised `README.md` gives a clear and structured presentation of the SIMBAD project. Adjustments can be made as needed!
-
