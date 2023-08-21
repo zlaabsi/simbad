@@ -1,4 +1,4 @@
-# SIMBAD : Synergistic Integration of Marketing with Bot-driven Acquisition and Data-driven decisions
+# 🏴‍☠️⚡SIMBAD : Synergistic Integration of Marketing with Bot-driven Acquisition and Data-driven decisions
 
 > **AARRR** - *Unleash the Future of Marketing with AI-Enhanced Pirate Metrics!*
 
