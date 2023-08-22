@@ -2,7 +2,6 @@
 
 ⚠️ **Disclaimer: we have two versions of our solution, the first on [Streamlit](https://simbad.streamlit.app/) and the second on [Vercel](https://ai-fy-chat-3x5q.vercel.app/). The first mainly uses Langchain, while the second uses SuperAGI.** ⚠️
 
-The README focuses mainly on the **[Streamlit](https://simbad.streamlit.app/)** deployed  version
 
 
 ## 🔗 [Lablab.ai Hackathon Link](https://lablab.ai/event/autonomous-agents-hackathon/next-big-tool/simbad-microtargeting-solution)
@@ -27,7 +26,15 @@ https://github.com/zlaabsi/simbad/assets/52045850/7655e35f-cdcf-4208-86c7-0680d7
 
 ---
 
-## Technologies Used
+
+
+## Building Agents with LangChain
+
+In the SIMBAD system, agents act as smart entities that perform tasks using a combination of AI models, such as those from OpenAI, and other data retrieval tools.
+
+---
+
+### Technologies Used
 
 - **Streamlit**: Our choice for building an interactive and user-friendly interface.
   
@@ -38,11 +45,6 @@ https://github.com/zlaabsi/simbad/assets/52045850/7655e35f-cdcf-4208-86c7-0680d7
 - **Langchain Agents & Tools**: These frameworks facilitate the efficient and versatile operations of our agent.
 
 ---
-
-
-## Building Agents in SIMBAD
-
-In the SIMBAD system, agents act as smart entities that perform tasks using a combination of AI models, such as those from OpenAI, and other data retrieval tools.
 
 ### 1. **Initialization**
 
@@ -160,6 +162,151 @@ These script examples provide a foundational understanding of how the agents in 
 5. **Engage with the Chatbot**: Enter your desired target product and observe as the bot intricately crafts its replies.
 
 ---
+---
+
+## Building with SuperAGI
+
+SuperAGI provides an extensive framework for constructing intelligent agents. SIMBAD, leveraging this framework, orchestrates multiple agents to achieve data-driven marketing decisions with unparalleled precision.
+
+### Agent Creation Script
+
+Through SuperAGI's robust API, agents are easily defined, configured, and deployed. Here's an illustrative configuration:
+
+```python
+# Agent configuration
+AGENT_CONFIG = {
+    "name": "Marketing Specialist",
+    "description": "Become a Marketing Specialist for Micro Targeting based on ChatGPT4",
+    "goal": ["Become a Marketing Specialist for Micro Targeting based on ChatGPT4"],
+    "agent_workflow": "Goal Based Workflow", 
+    "constraints": [
+        "If you are unsure how you previously did something or want to recall past events, thinking about similar events will help you remember.",
+    ...
+}
+
+BASE_URL = "https://app.superagi.com"
+API_KEY = "yourapikey"
+```
+
+This agent, titled "Marketing Specialist," is designed to immerse itself in the nuances of micro-targeting via the prowess of GPT-4.
+
+
+---
+
+### Integration with Weaviate for Knowledge Embeddings
+
+The integration with Weaviate, a state-of-the-art vector database, empowers the SIMBAD solution to store and query high-dimensional embeddings with ease. The following steps outline how textual data from the agent's output is split, transformed into embeddings, and stored in Weaviate :
+
+1. **Setting up Weaviate**: A connection to the Weaviate instance is established.
+2. **Text Splitting**: Large texts are broken down into digestible chunks.
+3. **Embedding Creation**: These chunks are then processed into embeddings.
+4. **Storage**: Embeddings are stored in Weaviate for rapid retrieval.
+
+#### 1. **Setting Up Weaviate Connection**
+Establish a connection with the Weaviate instance by providing the necessary authentication key and URL.
+
+```python
+import weaviate
+
+def setup_weaviate(auth_key, url):
+    auth_config = weaviate.AuthApiKey(api_key=auth_key)
+    client = weaviate.Client(auth_client_secret=auth_config, url=url)
+    return client
+```
+
+#### 2. **Text Splitting**
+To manage the token limits imposed by models, we split larger texts into smaller chunks using the Langchain Text Splitter.
+
+```python
+from langchain.text_splitter import TokenTextSplitter
+
+def split_text_into_chunks(text):
+    text_splitter = TokenTextSplitter(chunk_size=512, chunk_overlap=10)
+    input_chunks = text_splitter.split_text(text)
+    return input_chunks
+```
+
+#### 3. **Creating Embeddings with OpenAI**
+For each text chunk, an embedding is generated using OpenAI.
+
+```python
+import openai
+
+OPENAI_API_KEY = 'Your_OpenAI_API_Key'
+openai.api_key = OPENAI_API_KEY
+embed_model = "text-embedding-ada-002"
+
+def create_embeddings(texts):
+    res = openai.Embedding.create(input=texts, engine=embed_model)
+    embeddings = [record['embedding'] for record in res['data']]
+    return embeddings
+```
+
+#### 4. **Storing Embeddings in Weaviate**
+The generated embeddings are then stored in Weaviate's 'Knowledge' vector DB, each associated with its chunk of text.
+
+```python
+from uuid import uuid4
+
+def store_in_weaviate(client, input_chunks):
+    embeddings = create_embeddings(input_chunks)
+    final_chunks = [{
+        "id": str(uuid4()),
+        "text": input_chunk,
+        "embedding": embedding,
+    } for input_chunk, embedding in zip(input_chunks, embeddings)]
+    
+    with client.batch as batch:
+        for chunk in final_chunks:
+            batch.add_data_object(chunk, "Knowledge", uuid=chunk["id"])
+
+    # Verify if embeddings are stored
+    count = client.query.aggregate('Knowledge').with_meta_count().do()['data']['Aggregate']['Knowledge'][0]['meta']['count']
+    print(f"The total number of objects in the 'Knowledge' class is {count}.")
+```
+
+#### 5. **Main Function**
+Integrating all the aforementioned functions for execution.
+
+```python
+def main(text, auth_key, url):
+    client = setup_weaviate(auth_key, url)
+    input_chunks = split_text_into_chunks(text)
+    store_in_weaviate(client, input_chunks)
+
+if __name__ == '__main__':
+    response_json = "Your agent's textual output..."
+    weaviate_auth_key = "Your Weaviate Auth Key"
+    weaviate_url = "Your Weaviate URL"
+    main(response_json, weaviate_auth_key, weaviate_url)
+```
+
+
+
+
+
+---
+
+### Technologies Used
+
+1. **SuperAGI**: The underlying framework for creating and orchestrating intelligent agents.
+2. **ChatGPT-4**: Utilized as the core AI model to power the intelligent responses and actions of our agents.
+3. **Weaviate**: A state-of-the-art vector database for rapid and efficient data storage and retrieval.
+4. **Langchain Text Splitter**: A tool used to split larger textual content into manageable pieces.
+5. **OpenAI**: Used for embedding creation, a critical step before storage in Weaviate.
+
+### Running the Application
+
+To start the SIMBAD solution, follow these steps:
+
+1. Clone the repository.
+2. Set up your environment variables including `OPENAI_API_KEY`, `WEAVIATE_AUTH_KEY`, and `WEAVIATE_URL`.
+3. Run the initial setup scripts to ensure all data sources are prepared.
+4. Start the main application using the command `streamlit run simbad_app.py`.
+
+
+---
+
 
 ## Conclusion
 
