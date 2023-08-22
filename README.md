@@ -1,4 +1,7 @@
-# 🏴‍☠️⚡SIMBAD : Synergistic Integration of Marketing with Bot-driven Acquisition and Data-driven decisions
+# 🏴‍☠️⚡SIMBAD : Synergistic Integration of Marketing with Bot-driven Acquisition and Data-driven decisions [![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://simbad.streamlit.app/) [![Vercel](http://therealsujitk-vercel-badge.vercel.app/?app=therealsujitk-vercel-badge)](https://ai-fy-chat-3x5q.vercel.app/)
+
+
+## 🔗 [Lablab.ai Hackathon Link](https://lablab.ai/event/autonomous-agents-hackathon/next-big-tool/simbad-microtargeting-solution)
 
 > **AARRR** - *Unleash the Future of Marketing with AI-Enhanced Pirate Metrics!*
 
