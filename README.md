@@ -28,7 +28,7 @@ https://github.com/zlaabsi/simbad/assets/52045850/7655e35f-cdcf-4208-86c7-0680d7
 
 
 
-## Building Agents with LangChain
+## Building Agents with LangChain 🦜🔗
 
 In the SIMBAD system, agents act as smart entities that perform tasks using a combination of AI models, such as those from OpenAI, and other data retrieval tools.
 
@@ -164,7 +164,7 @@ These script examples provide a foundational understanding of how the agents in 
 ---
 ---
 
-## Building with SuperAGI
+## Building with SuperAGI 🤖
 
 SuperAGI provides an extensive framework for constructing intelligent agents. SIMBAD, leveraging this framework, orchestrates multiple agents to achieve data-driven marketing decisions with unparalleled precision.
 
