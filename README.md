@@ -1,6 +1,8 @@
 # 🏴‍☠️⚡SIMBAD : Synergistic Integration of Marketing with Bot-driven Acquisition and Data-driven decisions [![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://simbad.streamlit.app/) [![Vercel](http://therealsujitk-vercel-badge.vercel.app/?app=therealsujitk-vercel-badge)](https://ai-fy-chat-3x5q.vercel.app/)
 
-⚠️ **Disclaimer: we have two versions of our solution, the first on Streamlit and the second on Vercel. The first mainly uses Langchain, while the second uses SuperAGI.** ⚠️
+⚠️ **Disclaimer: we have two versions of our solution, the first on [Streamlit](https://simbad.streamlit.app/) and the second on [Vercel](https://ai-fy-chat-3x5q.vercel.app/). The first mainly uses Langchain, while the second uses SuperAGI.** ⚠️
+
+The README focuses mainly on the **[Streamlit](https://simbad.streamlit.app/)** deployed  version
 
 
 ## 🔗 [Lablab.ai Hackathon Link](https://lablab.ai/event/autonomous-agents-hackathon/next-big-tool/simbad-microtargeting-solution)
